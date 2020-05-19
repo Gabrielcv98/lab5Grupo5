@@ -1,11 +1,12 @@
 package sw2.lab5.Entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "user")
 
-public class Users {
+public class Users implements Serializable {
 
     @Id
 
