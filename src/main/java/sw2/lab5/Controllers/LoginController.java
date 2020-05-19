@@ -1,10 +1,13 @@
 package sw2.lab5.Controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import sw2.lab5.Entity.Users;
 import sw2.lab5.Repository.UserRepository;
 
@@ -41,4 +44,5 @@ public class LoginController {
             return "redirect:/employee/";
         }
     }
+
 }

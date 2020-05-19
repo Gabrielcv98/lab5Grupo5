@@ -18,9 +18,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception  {
-        http.formLogin();
-        http.authorizeRequests()
-            .anyRequest().permitAll();
+        http.formLogin()
+                .loginPage("/loginForm")
+                .loginProcessingUrl("/processLogin")
+                .defaultSuccessUrl("/redirectByRole", true);
+
 
 
         http.authorizeRequests()
@@ -38,5 +40,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
             .dataSource(dataSource)
             .passwordEncoder(new BCryptPasswordEncoder());
+
+
+
     }
 }
