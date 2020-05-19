@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/navbar.html :: header( title = 'Empleados')"></head>
+<head th:replace="fragments/base.html :: header( title = 'User')"></head>
 <body>
 <div class="container">
-    <nav th:replace="fragments/navbar.html :: navbar( active = 'Employee')"></nav>
+    <nav th:replace="fragments/base.html :: navbar( active = 'Employee')"></nav>
     <h2>User</h2>
 
     <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>

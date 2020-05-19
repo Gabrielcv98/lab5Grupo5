@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/navbar.html :: header( title = 'Transportistas')"></head>
+<head th:replace="fragments/navbar.html :: header( title = 'Editar usuario')"></head>
 <body>
 <div class="container">
     <nav th:replace="fragments/navbar.html :: navbar( active = 'Shipper')"></nav>
     <h2 th:text="${shipper.shipperId == 0? 'Nuevo Transportista' : 'Editar Transportista'}">Nuevo/Editar</h2>
     <hr/>
-    <form method="post" th:action="@{'/shipper/save'}" th:object="${shipper}">
+    <form method="post" th:action="@{'/user/guardar'}" th:object="${user}">
         <div class="form-group">
             <label for="idUser">ID</label>
             <input type="text" class="form-control" th:field="*{idUser}">
