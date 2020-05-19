@@ -1,10 +1,11 @@
 package sw2.lab5.Entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "post")
-public class Post {
+public class Post implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
