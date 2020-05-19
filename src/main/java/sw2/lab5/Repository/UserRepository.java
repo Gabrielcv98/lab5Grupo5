@@ -6,4 +6,5 @@ import sw2.lab5.Entity.Users;
 
 @Repository
 public interface UserRepository extends JpaRepository<Users, Integer> {
+    public Users findByEmail(String email);
 }
