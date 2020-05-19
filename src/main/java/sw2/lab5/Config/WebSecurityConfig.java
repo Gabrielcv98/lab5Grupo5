@@ -21,6 +21,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin();
         http.authorizeRequests()
             .anyRequest().permitAll();
+
+
+        http.authorizeRequests()
+                .antMatchers("/user", "/user/edit").hasAnyAuthority("admin","user")
+                .antMatchers("/user/list").hasAuthority("admin")
+                .antMatchers("/post/delete").hasAuthority("admin")
+                .antMatchers("/post/create", "/post/edit").hasAnyAuthority("admin","user")
+                .anyRequest().permitAll();
+
+
     }
 
     @Override
