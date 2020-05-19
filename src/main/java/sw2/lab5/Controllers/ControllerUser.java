@@ -23,7 +23,7 @@ public class ControllerUser {
     public String lista (Model model){
 
         model.addAttribute("listaUser", userRepository.findAll());
-        return "user/lista";
+        return "/user/list";
     }
 
     @GetMapping("/editar")
@@ -32,9 +32,24 @@ public class ControllerUser {
 
         Optional<Users> opt =   userRepository.findById(id);
         if (opt.isPresent()){
-
+            users = opt.get();
+            model.addAttribute("user", users);
+            return "user/editar";
+        }else {
+            return "redirect:/user";
         }
 
+    }
+
+    @GetMapping("/borrar")
+    public String borrar (Model model, @RequestParam("id") int id){
+
+        Optional<Users> opt = userRepository.findById(id);
+        if(opt.isPresent()){
+            userRepository.deleteById(id);
+        }
+
+        return "redirect:/user";
     }
 
 

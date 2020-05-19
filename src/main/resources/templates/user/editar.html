@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/navbar.html :: header( title = 'Transportistas')"></head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar.html :: navbar( active = 'Shipper')"></nav>
+    <h2 th:text="${shipper.shipperId == 0? 'Nuevo Transportista' : 'Editar Transportista'}">Nuevo/Editar</h2>
+    <hr/>
+    <form method="post" th:action="@{'/shipper/save'}" th:object="${shipper}">
+        <div class="form-group">
+            <label for="idUser">ID</label>
+            <input type="text" class="form-control" th:field="*{idUser}">
+        </div>
+        <div class="form-group">
+            <label for="firstName">Nombre</label>
+            <input type="text" class="form-control" th:field="*{firstName}">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Apellido</label>
+            <input type="text" class="form-control" th:field="*{lastName}">
+        </div>
+        <div class="form-group">
+            <label for="intro">Teléfono</label>
+            <input type="text" class="form-control" th:field="*{intro}">
+        </div>
+        <div class="form-group">
+            <label for="profile">Teléfono</label>
+            <input type="text" class="form-control" th:field="*{profile}">
+        </div>
+
+        <a th:href="@{'/user/list'}" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary" th:text="${shipper.shipperId == 0? 'Registrar' : 'Actualizar'}">Reg/act</button>
+    </form>
+</div>
+</body>
+</html>

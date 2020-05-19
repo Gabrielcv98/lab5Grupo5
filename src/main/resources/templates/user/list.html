@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/navbar.html :: header( title = 'Empleados')"></head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar.html :: navbar( active = 'Employee')"></nav>
+    <h2>User</h2>
+
+    <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee, info : ${listaUser}">
+            <td th:text="${employee.idUser}"></td>
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/user/editar' + '?id=' + ${employee.idUser}}">Editar</a>
+            </td>
+            <td><a class="btn btn-danger" th:href="@{'/user/delete' + '?id=' + ${employee.idUser}}">Borrar</a>
+            </td>
+        </tr>
+        </tbody>
+
+</div>
+</body>
+</html>
